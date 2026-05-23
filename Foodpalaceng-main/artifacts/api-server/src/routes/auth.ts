@@ -6,6 +6,11 @@ import { signToken, requireAuth, AuthRequest } from "../lib/auth.js";
 
 const router = Router();
 
+if (!db) {
+  console.warn("Database not configured - auth routes disabled");
+  export default router;
+}
+
 router.post("/register", async (req, res) => {
   try {
     const { name, email, password, phone } = req.body;
