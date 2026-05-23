@@ -1,0 +1,10 @@
+{
+  "buildCommand": "pnpm install && pnpm -r build",
+  "outputDirectory": "api-server/dist",
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/api"
+    }
+  ]
+}
