@@ -3,23 +3,30 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "main": "./dist/index.js",
   "exports": {
-    ".": "./src/index.ts",
-    "./schema": "./src/schema/index.ts"
+    ".": {
+      "import": "./dist/index.js"
+    },
+    "./schema": {
+      "import": "./dist/schema/index.js"
+    }
   },
   "scripts": {
+    "build": "tsc",
     "push": "drizzle-kit push --config ./drizzle.config.ts",
-    "push-force": "drizzle-kit push --force --config ./drizzle.config.ts"
+    "force": "drizzle-kit push --force --config ./drizzle.config.ts"
   },
   "dependencies": {
-    "drizzle-orm": "catalog:",
-    "drizzle-zod": "^0.8.3",
+    "drizzle-orm": "^1.4.7",
+    "drizzle-zod": "^0.0.3",
     "pg": "^8.20.0",
-    "zod": "catalog:"
+    "zod": "^3.0.3"
   },
   "devDependencies": {
-    "@types/node": "catalog:",
-    "@types/pg": "^8.20.0",
-    "drizzle-kit": "^0.31.10"
+    "@types/node": "^25.6.2",
+    "@types/pg": "^8.31.10",
+    "drizzle-kit": "^0.31.10",
+    "typescript": "^5.9.3"
   }
 }
